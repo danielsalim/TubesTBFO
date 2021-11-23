@@ -1,0 +1,45 @@
+Terminals:
++ - * / % and or variable number is ! not = > < ( ) [ ] true false string ' " if elif else : print input str float int double while for in range def class import as from return raise len range , break pass continue with open
+
+Variables:
+S VRL VAR VAL BOOL OPS STRING IF ELIF ELSE PRINT EXPRES RELATION INPUT BRACKET TYPE WHILE FOR RANGE DEF CLASS IMPORT FROM RETURN RAISE METHOD RANGE BREAK PASS CONTINUE COMMENT CONTENT
+
+Productions:
+S -> S S | VAR = VRL | VAR + = VRL | VAR - = VRL | VAR * = VRL | VAR / = VRL ;
+S -> IF | PRINT | WHILE | FOR | DEF | CLASS | IMPORT | FROM | COMMENT | NONE ;
+
+VRL ->  VAR | VAL | VRL OPERATION VRL | INPUT | VRL , VRL | METHOD | NONE;
+VAR -> variable;
+VAL -> number | VRL OPERATION VRL | VRL * * VRL | VRL / / VRL | ( VRL ) | BOOLEAN | STRING;
+
+RELATION -> > | < | = = | ! = | < = | > =;
+BOOLEAN -> true | false | BOOLEAN and BOOLEAN | BOOLEAN or BOOLEAN | not BOOLEAN | VRL is VRL | VRL RELATION VRL;
+OPERATION -> + | - | * | / | %;
+
+STRING -> " string " | ' string ' | STRING + STRING;
+CONTENT -> VAR | CONTENT CONTENT;
+COMMENT -> " " " CONTENT " " " | ' ' ' CONTENT ' ' ';
+BRACKET -> ( VRL ) | ( );
+PRINT -> print BRACKET;
+EXPRESSION -> ( BOOLEAN ) : S | BOOLEAN : S;
+RAISE -> raise BRACKET;
+BREAK -> break;
+PASS -> pass;
+CONTINUE -> continue;
+
+IF -> if EXPRESSION | IF ELIF | IF ELSE | IF RAISE | IF BREAK | IF PASS | IF CONTINUE;
+ELIF -> elif EXPRESSION | ELIF ELIF | ELIF ELSE;
+ELSE -> else : S;
+
+TYPE -> str | float | int | double;
+INPUT -> input BRACKET | TYPE ( INPUT );
+RANGE -> range BRACKET;
+WHILE -> while EXPRESSION;
+FOR -> for VAR in STRING : S | for VAR in RANGE : S;
+RETURN -> return BOOLEAN | return VAL;
+DEF -> def VAR BRACKET : S | DEF RETURN;
+CLASS -> class VAR : S;
+IMPORT -> import VAR as VAR | import VAR;
+FROM -> from VAR IMPORT;
+METHOD -> len BRACKET | with open BRACKET as VAR
+NONE -> none = = VRL | none = = ARRAY ;
