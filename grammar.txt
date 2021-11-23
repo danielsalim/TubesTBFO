@@ -41,5 +41,5 @@ DEF -> def VAR BRACKET : S | DEF RETURN;
 CLASS -> class VAR : S;
 IMPORT -> import VAR as VAR | import VAR;
 FROM -> from VAR IMPORT;
-METHOD -> len BRACKET | with open BRACKET as VAR
-NONE -> none = = VRL | none = = ARRAY ;
+METHOD -> len BRACKET | with open BRACKET as VAR;
+NONE -> none = = VRL | none = = ARRAY
