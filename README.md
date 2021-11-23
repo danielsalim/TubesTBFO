@@ -6,5 +6,5 @@
 * 13520048 Arik Rayi Arkananta
 
 ## Deskripsi
-* Tugas besar ini dilakukan sebagai salah satu tugas dari mata kuliah IF2123 Aljabar Linier dan Geometri
+* Tugas besar ini dilakukan sebagai salah satu tugas dari mata kuliah IF2124 Teori Bahasa Formal dan Otomata
 * Sebuah program Syntax Checker yang menggunakan algoritma parsing yang didefinisikan oleh grammar CFG dalam bentuk CNF
