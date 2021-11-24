@@ -7,24 +7,20 @@ variablesJar = ["A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1"
 "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "I5", "J5", "K5", "L5", "M5", "N5", "O5", "P5", "Q5", "R5", "S5", "T5", "U5", "V5", "W5", "X5", "Y5", "Z5"]
 
 
-def cleanProduction(expression):
-	result = []
-	rawRulse = expression.replace('\n','').split(';')
-	for rule in rawRulse:
-		leftSide = rule.split(' -> ')[0].replace(' ','')
-		rightTerms = rule.split(' -> ')[1].split(' | ')
-		for term in rightTerms:
-			result.append( (leftSide, term.split(' ')) )
-	return result
-
-
 def splitFile(file):
 	K = (file.split("Variables:\n")[0].replace("Terminals:\n","").replace("\n",""))
 	V = (file.split("Variables:\n")[1].split("Productions:\n")[0].replace("Variables:\n","").replace("\n",""))
 	P = (file.split("Productions:\n")[1])
 	K = K.replace('  ',' ').split(' ')
 	V = V.replace('  ',' ').split(' ')
-	return K, V, cleanProduction(P)
+	P2 = []
+	rawRulse = P.replace('\n','').split(';')
+	for rule in rawRulse:
+		leftSide = rule.split(' -> ')[0].replace(' ','')
+		rightTerms = rule.split(' -> ')[1].split(' | ')
+		for term in rightTerms:
+			P2.append( (leftSide, term.split(' ')) )
+	return K, V, P2
 
 
 def setupDict(productions, variables, terms):
@@ -32,17 +28,6 @@ def setupDict(productions, variables, terms):
 	for production in productions:
 		if production[left] in variables and production[right][0] in terms and len(production[right]) == 1:
 			result[production[right][0]] = production[left]
-	return result
-
-
-def rewrite(target, production):
-	result = []
-	positions = [i for i,x in enumerate(production[right]) if x == target]
-	for i in range(len(positions)+1):
- 		for element in list(itertools.combinations(positions, i)):
- 			tadan = [production[right][i] for i in range(len(production[right])) if i not in element]
- 			if tadan != []:
- 				result.append((production[left], tadan))
 	return result
 
 
