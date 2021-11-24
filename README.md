@@ -11,4 +11,4 @@
 
 ## Cara menggunakan
 * buka terminal dan atur directory ke folder utama
-* ketik "python main.py <file>.py" untuk menjalankan program
+* ketik "python main.py {namafile}.py" untuk menjalankan program

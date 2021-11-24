@@ -1,5 +1,4 @@
 import re
-import FA as fa
 
 def codeSplitter(inputFile):
     f = open(inputFile, "r")
@@ -21,11 +20,6 @@ def codeSplitter(inputFile):
                 tempResult.append(splittedx) 
         output = tempResult
 
-    # Remove whitespace from output
-    #for statement in output:
-        #if statement == '':
-            #output.remove(statement)
-
     # Split the variables
     tempResult = []
     for statement in output:
@@ -37,5 +31,4 @@ def codeSplitter(inputFile):
             else:
                 split = list(statement)
                 tempResult.extend(split)
-            
     return tempResult
