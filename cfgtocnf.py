@@ -158,17 +158,9 @@ def convert ():
 			if nonTerminal in variablesJar:
 				variablesJar.remove(nonTerminal)
 		Productions = newS(Productions, variables=V)
-		print(Productions)
-		print("batas suci 1")
 		Productions = eliminateTerminalWithTerminal(Productions, variables=V, terms=K)
-		print(Productions)
-		print("batas suci 2")
 		Productions = eliminateNonUnitry(Productions, variables=V)
-		print(Productions)
-		print("batas suci 3")
 		Productions = unit(Productions, variables=V)
-		print(Productions)
-		print("batas suci 5")
 		Productions = convertToMap(Productions)
 		return Productions
 	except:
