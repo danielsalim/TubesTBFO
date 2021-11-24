@@ -8,6 +8,8 @@
 ## Deskripsi
 * Tugas besar ini dilakukan sebagai salah satu tugas dari mata kuliah IF2124 Teori Bahasa Formal dan Otomata
 * Sebuah program Syntax Checker yang menggunakan algoritma parsing CYK yang didefinisikan oleh grammar CFG dalam bentuk CNF
+List File
+* Grammar.txt = berisi daftar terminal, variables, dan productions grammar
 
 ## Cara menggunakan
 * buka terminal dan atur directory ke folder utama
