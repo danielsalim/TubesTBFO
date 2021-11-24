@@ -170,3 +170,5 @@ def convert ():
 		return CNF
 	except:
 		print("CFG grammar 'grammar.txt' not found")
+
+Line = convert()
