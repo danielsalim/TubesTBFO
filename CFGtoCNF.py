@@ -46,19 +46,6 @@ def rewrite(target, production):
 	return result
 
 
-def convertForm(rules):
-	dictionary = {}
-	for rule in rules:
-		if rule[left] in dictionary:
-			dictionary[rule[left]] += ' | '+' '.join(rule[right])
-		else:
-			dictionary[rule[left]] = ' '.join(rule[right])
-	result = ""
-	for key in dictionary:
-		result += key+" -> "+dictionary[key]+"\n"
-	return result
-
-
 def isUnitary(rule, variables):
 	if rule[left] in variables and rule[right][0] in variables and len(rule[right]) == 1:
 		return True
@@ -139,7 +126,7 @@ def unit(productions, variables):
 		i+=1
 	return result
 
-def convertToMap (Productions):
+def convertToDict (Productions):
 	dictionary = {}
 	for production in Productions :
 		if(production[left] in dictionary.keys()):
@@ -161,7 +148,7 @@ def convert ():
 		Productions = eliminateTerminalWithTerminal(Productions, variables=V, terms=K)
 		Productions = eliminateNonUnitry(Productions, variables=V)
 		Productions = unit(Productions, variables=V)
-		Productions = convertToMap(Productions)
+		Productions = convertToDict(Productions)
 		return Productions
 	except:
 		print("CFG grammar 'grammar.txt' not found")
