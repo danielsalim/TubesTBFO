@@ -20,11 +20,10 @@ def cykParser(output,cnfGrammar):
                         if len(production) == 2 :
                             if(production[0] in CYKtable[x][k]) and (production[1] in CYKtable[k+1][y]): 
                                 CYKtable[x][y].add(variable[0])
-    #print(table)
-    #print(table[0][num-1])
+
     if "S0" in CYKtable[0][num-1] :
-        print(CYKtable[0][num-1])
+        #print(CYKtable[0][num-1])
         print("Accepted Syntax!")
     else :
-        print(CYKtable[0][num-1])
+        #print(CYKtable[0][num-1])
         print("Syntax Error")
