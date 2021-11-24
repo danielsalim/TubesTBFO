@@ -7,7 +7,7 @@ variablesJar = ["A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1"
 "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "I5", "J5", "K5", "L5", "M5", "N5", "O5", "P5", "Q5", "R5", "S5", "T5", "U5", "V5", "W5", "X5", "Y5", "Z5"]
 
 
-def splitFile(file):
+def splitFile(file):	#Split opened file into array variables (V),  terminal (K), and Productions
 	K = (file.split("Variables:\n")[0].replace("Terminals:\n","").replace("\n",""))
 	V = (file.split("Variables:\n")[1].split("Productions:\n")[0].replace("Variables:\n","").replace("\n",""))
 	P = (file.split("Productions:\n")[1])
@@ -23,7 +23,7 @@ def splitFile(file):
 	return K, V, P2
 
 
-def setupDict(productions, variables, terms):
+def setupDict(productions, variables, terms):	#Make dictionary from Productions, K, and V
 	result = {}
 	for production in productions:
 		if production[left] in variables and production[right][0] in terms and len(production[right]) == 1:
@@ -31,13 +31,13 @@ def setupDict(productions, variables, terms):
 	return result
 
 
-def isUnitary(rule, variables):
+def isUnitary(rule, variables):	#Return true if rule is unitary (RHS only one variable)
 	if rule[left] in variables and rule[right][0] in variables and len(rule[right]) == 1:
 		return True
 	return False
 
 
-def isSimple(rule, K, V):
+def isSimple(rule, K, V):	#Return true if rule RHS only have one terminal
 	if rule[left] in V and rule[right][0] in K and len(rule[right]) == 1:
 		return True
 	return False
@@ -111,7 +111,7 @@ def unit(productions, variables):
 		i+=1
 	return result
 
-def convertToDict (Productions):
+def convertToDict (Productions):	#Convert Productions into dictionary
 	dictionary = {}
 	for production in Productions :
 		if(production[left] in dictionary.keys()):
@@ -121,7 +121,7 @@ def convertToDict (Productions):
 			dictionary[production[left]].append(production[right])
 	return dictionary
 
-def convert ():
+def convert ():		#Main function to convert CFG into CNF
 	K, V, Productions = [],[],[]
 	try:
 		file = open('grammar.txt').read()
